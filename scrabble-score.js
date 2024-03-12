@@ -29,10 +29,10 @@ export function calculateScrabbleScore(word) {
 		Y: 4,
 		Z: 10,
 	};
+	//check if alpha with REGEX .test() regex method
 	if (!/^[a-zA-Z]*$/.test(word)) {
 		throw new Error(`unsupported characters in ${word}`);
 	}
-	// const value = letterValues[`${word}`];
 	// return value;
 	let score = 0;
 
