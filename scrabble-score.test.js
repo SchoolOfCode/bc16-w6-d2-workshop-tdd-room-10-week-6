@@ -62,3 +62,27 @@ test.each([
 ])("should throw error if $word not A-Z a-z ", (word, expected) => {
 	expect(() => calculateScrabbleScore(word)).toThrowError(expected);
 });
+
+test("if word uses all tiles points + 50", () => {
+	// arrange
+	const usedAllTiles = true;
+	const word = "DABBLER";
+	const expected = 62;
+
+	// assert
+	const actual = calculateScrabbleScore(word, usedAllTiles);
+
+	expect(actual).toBe(expected);
+});
+
+test.each([
+	["GERMAN", 9],
+	["german", 9],
+	["Golf", 8],
+	["BiGGest", 11],
+])("function accepts upper and lower case => %s", (word, expected) => {
+	// assert
+	const actual = calculateScrabbleScore(word);
+
+	expect(actual).toBe(expected);
+});

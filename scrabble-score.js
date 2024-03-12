@@ -1,6 +1,6 @@
 //object of letter keys and their scabble values
 
-export function calculateScrabbleScore(word) {
+export function calculateScrabbleScore(word, usedAllTiles) {
 	const upperCaseWord = word.toUpperCase();
 	let score = 0;
 	const letterValues = {
@@ -34,6 +34,9 @@ export function calculateScrabbleScore(word) {
 	//check if alpha with REGEX .test() regex method
 	if (!/^[a-zA-Z]*$/.test(word)) {
 		throw new Error(`unsupported characters in ${word}`);
+	}
+	if (usedAllTiles === true) {
+		score += 50;
 	}
 
 	//loop over each character in string word
