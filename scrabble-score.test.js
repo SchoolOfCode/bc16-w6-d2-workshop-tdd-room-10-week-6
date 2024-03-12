@@ -41,3 +41,14 @@ test(`dog should equal 5`, () => {
   //assert
   expect(actual).toBe(expected);
 });
+
+test.each([
+  ["DOG", 5],
+  ["BOG", 6],
+  ["JOG", 11],
+  ["QUEEN", 14],
+  ["JAVASCRIPT", 24],
+  ["THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG", 99],
+])(`%s should return %i`, (letter, expected) => {
+  expect(calculateScrabbleScore(letter)).toBe(expected);
+});
