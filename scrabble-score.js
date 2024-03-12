@@ -1,6 +1,8 @@
+//object of letter keys and their scabble values
+
 export function calculateScrabbleScore(word) {
 	const upperCaseWord = word.toUpperCase();
-	//object of key value pairs
+	let score = 0;
 	const letterValues = {
 		A: 1,
 		B: 3,
@@ -33,16 +35,11 @@ export function calculateScrabbleScore(word) {
 	if (!/^[a-zA-Z]*$/.test(word)) {
 		throw new Error(`unsupported characters in ${word}`);
 	}
-	// return value;
-	let score = 0;
 
 	//loop over each character in string word
 	for (let i = 0; i < upperCaseWord.length; i++) {
-		// match each char in word to letterValues object
+		// update score with value of each letter
 		score += letterValues[upperCaseWord[i]];
 	}
 	return score;
 }
-//increment score variable by the letter score
-//return score
-//console.log(calculateScrabbleScore("dog"));
