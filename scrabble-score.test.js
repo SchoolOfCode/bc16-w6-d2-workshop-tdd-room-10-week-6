@@ -52,3 +52,16 @@ test.each([
 ])(`%s should return %i`, (letter, expected) => {
   expect(calculateScrabbleScore(letter)).toBe(expected);
 });
+
+// test for input validation A-Z
+
+// /^[A-Za-z]+$/
+
+test("Includes non-alpha characters", () => {
+  // arrange
+  const word = "w0rd";
+  // act
+  //   const actual = calculateScrabbleScore();
+  // assert
+  expect(() => calculateScrabbleScore(word)).toThrowError("non-alpha in param");
+});
