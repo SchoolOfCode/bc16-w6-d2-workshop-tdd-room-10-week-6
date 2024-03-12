@@ -55,13 +55,26 @@ test.each([
 
 // test for input validation A-Z
 
-// /^[A-Za-z]+$/
-
 test("Includes non-alpha characters", () => {
-  // arrange
-  const word = "w0rd";
-  // act
-  //   const actual = calculateScrabbleScore();
-  // assert
-  expect(() => calculateScrabbleScore(word)).toThrowError("non-alpha in param");
+  expect(() => calculateScrabbleScore("£")).toThrowError("non-alpha in param");
+});
+
+test("code should give 50 additional points", () => {
+  // Arrange
+  const word = "cabbage";
+  const expected = 64;
+  // Act
+  const actual = calculateScrabbleScore(word);
+  // Assert
+  expect(actual).toBe(expected);
+});
+
+test("cabbage should be 64 ", () => {
+  // Arrange
+  const word = "cabBage";
+  const expected = 64;
+  // Act
+  const actual = calculateScrabbleScore(word);
+  // Assert
+  expect(actual).toBe(expected);
 });

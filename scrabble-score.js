@@ -30,18 +30,20 @@ export function calculateScrabbleScore(word) {
     Z: 10,
   };
 
-  // const value = letterValues[`${word}`];
-  // return value;
   let score = 0;
+  if (upperCaseWord.length === 7) {
+    score += 50;
+  }
 
-  //loop over each character in string word
-  for (let i = 0; i < upperCaseWord.length; i++) {
-    // match each char in word to letterValues object
-    console.log(upperCaseWord[i]);
-    score += letterValues[upperCaseWord[i]];
+  if (/^[A-Z]*$/.test(upperCaseWord)) {
+    //loop over each character in string word
+    for (let i = 0; i < upperCaseWord.length; i++) {
+      // match each char in word to letterValues object
+      console.log(upperCaseWord[i]);
+      score += letterValues[upperCaseWord[i]];
+    }
+  } else {
+    throw new Error("non-alpha in param");
   }
   return score;
 }
-//increment score variable by the letter score
-//return score
-//console.log(calculateScrabbleScore("dog"));
