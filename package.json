@@ -2,8 +2,13 @@
   "name": "soc-tdd-2021-12",
   "version": "0.0.1",
   "description": "Simple codebase for trying TDD",
-  "scripts": {},
+  "scripts": {
+    "test": "vitest"
+  },
   "type": "module",
   "author": "Rob Styles",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.3.1"
+  }
 }
